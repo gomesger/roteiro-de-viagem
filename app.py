@@ -5,8 +5,12 @@ from pathlib import Path
 import base64
 import locale
 import urllib.parse
+import locale
 
-locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+try:
+    locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
+except locale.Error:
+    locale.setlocale(locale.LC_ALL, '')  # usa o padrão do sistema se 'pt_BR' falhar
 
 st.set_page_config(page_title="Roteiro de Viagem", layout="wide")
 
