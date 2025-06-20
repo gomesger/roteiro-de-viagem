@@ -5,12 +5,11 @@ from pathlib import Path
 import base64
 import locale
 import urllib.parse
-import locale
 
 try:
     locale.setlocale(locale.LC_ALL, 'pt_BR.UTF-8')
 except locale.Error:
-    locale.setlocale(locale.LC_ALL, '')  # usa o padrão do sistema se 'pt_BR' falhar
+    locale.setlocale(locale.LC_ALL, '')
 
 st.set_page_config(page_title="Roteiro de Viagem", layout="wide")
 
@@ -20,9 +19,18 @@ html, body, [data-testid="stApp"], .main, #root {
     background-color: black !important;
     color: white !important;
     margin: 0;
-    padding: 0 5px 20px 5px;
+    padding: 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+header, footer {
+    display: none;
+}
+.block-container {
+    padding-top: 0rem !important;
+    padding-bottom: 1rem !important;
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
 }
 label, .stTextInput label, .stDateInput label, .stTimeInput label, .stNumberInput label, .stTextArea label, .stRadio label {
     color: white !important;
@@ -33,6 +41,7 @@ label, .stTextInput label, .stDateInput label, .stTimeInput label, .stNumberInpu
     color: white;
     margin-bottom: 10px;
     text-align: center;
+    margin-top: 0;
 }
 span.laranja {
     color: #FFA500;
@@ -89,17 +98,18 @@ img {
     margin-bottom: 5px;
 }
 .titulo-expander {
-    font-size: 30px !important;
+    font-size: 20px !important;
     font-weight: bold !important;
     margin-bottom: 5px !important;
     color: white !important;
     user-select: none;
     display: flex !important;
     align-items: center !important;
-    gap: 8px !important;
+    gap: 6px !important;
+    margin-top: 10px;
 }
 .titulo-expander span.emoji {
-    font-size: 40px !important;
+    font-size: 24px !important;
     line-height: 1 !important;
 }
 @media (max-width: 768px) {
